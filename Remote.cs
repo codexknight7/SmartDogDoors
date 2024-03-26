@@ -20,15 +20,11 @@ namespace SmartDogDoors
             Console.WriteLine("Pressing the remote control button...");
             if (Door.IsOpen)
             {
-                Door.Close();
-                Console.WriteLine("The dog door closes.");
+                Door.Close();                
             }
             else
             {
                 Door.Open();
-                Console.WriteLine("The dog door opens.");
-                Thread.Sleep(5000);
-                Door.Close();                
             }
         }
     }

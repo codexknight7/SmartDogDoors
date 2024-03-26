@@ -11,21 +11,23 @@ namespace SmartDogDoors
         public static void Main()
         {
             DogDoor dogDoor = new DogDoor();
+            BarkRecognizer recognizer = new BarkRecognizer(dogDoor);
             Remote remote = new Remote(dogDoor); 
 
             Console.WriteLine("Fido barks to go outside...");
-            remote.PressButton();
+            recognizer.recognize("Woof");
+            //remote.PressButton();
             Console.WriteLine("\nFido has gone outside...");
             Console.WriteLine("\nFido's all done...");
-
+            recognizer.recognize("Woof");
             Thread.Sleep(10000);
             Console.WriteLine("\nFido's stuck outside...");
             Console.WriteLine("\nFido starts barking...");
-            Console.WriteLine("\nGina grabs the remote control.");
+            recognizer.recognize("Woof");
 
-            remote.PressButton();
+            //Console.WriteLine("\nGina grabs the remote control.");
+            //remote.PressButton();
             Console.WriteLine("\nFido's back inside...");
-            Console.WriteLine("\nThe dog door closes.");
         }
     }
 }
