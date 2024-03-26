@@ -11,14 +11,24 @@ namespace SmartDogDoors
         private DogDoor door;
 
         public BarkRecognizer(DogDoor door)
-        { 
-            this.door = door; 
+        {
+            this.door = door;
         }
 
-        public void recognize(string bark)
+        public void recognize(Bark bark)
         {
-            Console.WriteLine("BarkRecognizer: Heard a 'bark'");
-            door.Open();
+            Console.WriteLine("BarkRecognizer: Heard a '" + bark.Sound + "'");
+
+            List<Bark> allowedBarks = door.AllowedBarks;
+            foreach (Bark b in allowedBarks)
+            {
+                if (b.Sound.Equals(bark.Sound))
+                {
+                    door.Open();
+                    return;
+                }
+            }
+            Console.WriteLine("This dog is not allowed.");
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿public class DogDoor
+﻿using SmartDogDoors;
+
+public class DogDoor
 {
     private bool _isOpen;
 
-    public bool IsOpen
-    { get { return _isOpen; } }
-
+    public bool IsOpen { get { return _isOpen; } }
+    public List<Bark> AllowedBarks { get; set; } = null!;
 
     public DogDoor()
     {
